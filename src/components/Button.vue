@@ -1,5 +1,5 @@
 <template>
-    <button @click="addTask()" :style="{background: color}" class="btn">{{ text }}</button>
+    <button @click="$emit('btn-click')" :style="{background: color}" class="btn">{{ text }}</button>
 </template>
 
 <script>
@@ -10,13 +10,7 @@ export default {
         color: String
     },
     methods:{  
-        addTask: function () {
-            console.log('button');
-        }
+    
     }
 }
 </script>
-
-<style scoped>
-
-</style>
