@@ -1,16 +1,10 @@
 {
   "tasks": [
     {
-      "text": "test",
-      "day": "1st april",
-      "reminder": false,
-      "id": 1
-    },
-    {
-      "text": "test2",
-      "day": "1st nov",
+      "text": "maz",
+      "day": "2023-11-29 14:30",
       "reminder": true,
-      "id": 2
+      "id": 4
     }
   ]
 }

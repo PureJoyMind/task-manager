@@ -6,11 +6,9 @@
     </div>
     <div class="form-control">
       <label>Day & Time</label>
-      <input
-        type="text"
+      <VueDatePicker
         v-model="day"
         name="day"
-        placeholder="Add Day & Time"
       />
     </div>
     <div class="form-control form-control-check">
@@ -23,8 +21,19 @@
 </template>
 
 <script>
+import { ref } from 'vue';
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+
 export default {
     name: 'AddTask',
+    setup() {
+      const date = ref();
+
+      return {
+        date
+      }
+    },
     data() {
         return{
             text: '',
@@ -32,6 +41,9 @@ export default {
             reminder: false
         }
     }, 
+    components:{
+      VueDatePicker
+    },
     methods:{
         onSubmit(e){
             e.preventDefault();
@@ -44,7 +56,7 @@ export default {
             var newTask = {
                 // id: Math.floor(Math.random() * 100000),
                 text: this.text,
-                day: this.day,
+                day: this.format(this.day),
                 reminder: this.reminder
             }
 
@@ -56,9 +68,20 @@ export default {
             this.day = '';
             this.reminder = false;
             this.$emit('toggle-add-task');
+        },
+        format(date){
+          const day = date.getDate();
+          const month = date.getMonth() + 1;
+          const year = date.getFullYear();
+          const hour = date.getHours();
+          const min = date.getMinutes();
+
+          return `${year}-${month}-${day} ${hour}:${min}`;
         }
     }
 }
+
+
 </script>
 
 <style scoped>
