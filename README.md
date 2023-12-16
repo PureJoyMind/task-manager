@@ -15,14 +15,16 @@ Install dependencies
 ``` shell
 npm install
 ```
-### Backend Replication
-Run this in a separate terminal:
+
+## Run The Application
+Run this in a separate terminal to start the backend replication:
 ```
+# starts the backend replicator on port 5000
 npm run backend
 ```
-
-### Compiles and hot-reloads for development
+Then start the application in development mode:
 ```
+# starts the app on port 8080
 npm run serve
 ```
 
