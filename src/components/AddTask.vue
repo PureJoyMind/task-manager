@@ -9,6 +9,7 @@
       <VueDatePicker
         v-model="day"
         name="day"
+        text-input 
       />
     </div>
     <div class="form-control form-control-check">
@@ -56,7 +57,8 @@ export default {
             var newTask = {
                 // id: Math.floor(Math.random() * 100000),
                 text: this.text,
-                day: this.format(this.day),
+                day: this.day.toLocaleDateString("en-US", 
+                  { year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' }),
                 reminder: this.reminder
             }
 
@@ -69,15 +71,15 @@ export default {
             this.reminder = false;
             this.$emit('toggle-add-task');
         },
-        format(date){
-          const day = date.getDate();
-          const month = date.getMonth() + 1;
-          const year = date.getFullYear();
-          const hour = date.getHours();
-          const min = date.getMinutes();
+        // format(date){
+        //   const day = date.getDate();
+        //   const month = date.getMonth() + 1;
+        //   const year = date.getFullYear();
+        //   const hour = date.getHours();
+        //   const min = date.getMinutes();
 
-          return `${year}-${month}-${day} ${hour}:${min}`;
-        }
+        //   return `${year}-${month}-${day} ${hour}:${min}`;
+        // }
     }
 }
 
